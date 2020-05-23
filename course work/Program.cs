@@ -6,7 +6,23 @@ namespace course_work
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+            CheckerBoard test = new CheckerBoard();
+
+
+           
+            
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    Console.Write(test.MatrixBoard[i,j]);
+                    Console.Write(" ");
+                }
+                Console.WriteLine();
+            }
+          
+
         }
     }
 }
