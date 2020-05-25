@@ -6,23 +6,30 @@ namespace course_work
     {
         static void Main(string[] args)
         {
-            
             CheckerBoard test = new CheckerBoard();
-
-
-           
+    
+            Console.WriteLine(CheckerBoard.Board);
             
-            for (int i = 0; i < 8; i++)
+            Player test1 = new Player();
+            
+            test1.SetCommand(new PlayerMove(test));
+            
+            test1.Move();
+            
+
+
+            /*for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    Console.Write(test.MatrixBoard[i,j]);
-                    Console.Write(" ");
+                    Console.WriteLine(CheckerBoard.MatrixBoard[i,j]);
                 }
-                Console.WriteLine();
-            }
-          
+            }*/
+
 
         }
     }
+
+
+ 
 }
