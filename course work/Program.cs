@@ -6,15 +6,32 @@ namespace course_work
     {
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             CheckerBoard test = new CheckerBoard();
-    
-            Console.WriteLine(CheckerBoard.Board);
+            test.EndGame();
             
-            Player test1 = new Player();
             
-            test1.SetCommand(new PlayerMove(test));
             
-            test1.Move();
+            //GameContinuation game = new GameContinuation();
+            
+            
+            
+            /*String Choice;
+            Console.WriteLine("Выбирите опцию:");
+            Console.WriteLine("1.Начать новую игру");
+            Console.WriteLine("2.Вывести рейтинг игроков");
+            Choice = Console.ReadLine();
+            do
+            {
+                switch (Choice)
+                {
+                    case "1":
+                        
+                    
+                }
+                
+            } while (true);*/
+            
             
 
 
