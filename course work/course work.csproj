@@ -6,4 +6,8 @@
         <RootNamespace>course_work</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="StructureMap.Microsoft.DependencyInjection" Version="2.0.0" />
+    </ItemGroup>
+
 </Project>

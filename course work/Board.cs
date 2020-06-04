@@ -13,7 +13,7 @@ namespace course_work
     public class Board : IBoard
     {
         /// <summary>
-        /// Словарь, отображающий 2D точки на части шашек
+        /// Словарь, отображающий 2D точки на клетках поля
         /// </summary>
         public Space[] Spaces { get; private set; }
 

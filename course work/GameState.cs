@@ -79,8 +79,8 @@
 
         public override string ToString()
         {
-            var turnMsg = string.Format("Сейчас ход {0} команды.", this.CurrentTurn);
-            var winMsg = string.Format("{0} команда выграла!", this.WinningTeam());
+            var turnMsg = string.Format("Сейчас ход команды {0}.", this.CurrentTurn);
+            var winMsg = string.Format("Команда {0} выграла!", this.WinningTeam());
 
             return string.Format("{0}\n\n{1}", this.GameOver() ? winMsg : turnMsg, this.Board);
         }
@@ -96,8 +96,6 @@
         /// <summary>
         /// Найти все ходы, начиная с начального хода
         /// </summary>
-        /// <param name="team">Team to move</param>
-        /// <param name="move">Seed move</param>
         private IEnumerable<Move> FindMoves(Team team, Move move)
         {
             var moves = new List<Move>();
@@ -110,7 +108,6 @@
             // Проверка шашки на Дамку, или этот ход сделает ее Дамкой
             if(this.Board.Spaces[move.From].Piece.King || move.KingMe)
             {
-                // Try both backward directions
                 moves.AddRange(this.FindMoves(this.CurrentTurn, new Move(move), -1 * multiplier * 4));
                 moves.AddRange(this.FindMoves(this.CurrentTurn, new Move(move), -1 * multiplier * 5));
             }
@@ -164,11 +161,8 @@
         }
 
         /// <summary>
-        /// Is the coordinate a king space for this team?
+        /// Проверка на дамку во время хода заданой комманды
         /// </summary>
-        /// <param name="team">Team to check</param>
-        /// <param name="coord">Coordinate to check</param>
-        /// <returns>True if a king space</returns>
         private bool KingSpace(Team team, int coord)
         {
             if(team == Team.Red && coord >= 5 && coord <= 8)
@@ -185,10 +179,8 @@
         }
 
         /// <summary>
-        /// Count remaining pieces for given team.
+        /// Подсчет оставшихся шашек переданой комманды
         /// </summary>
-        /// <param name="team">Team to check</param>
-        /// <returns>Number of remaining pieces</returns>
         private int PieceCount(Team team)
         {
             return this.Board.Spaces.Where(s => s.Occupied() && s.Piece.Team == team).Count();
